@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Home</title>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/foundation.css">
+
+  <script src="js/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+  
+  <!-- End Nav and Banner -->
+
+<div class ="row">
+
+<div class = "large-3 column">
+<p><img scr="http://nosodc.org/site/wp-content/uploads/2011/03/img-placeholder.png"></p>
+  <div id="container"></div>
+    <script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.5.4.min.js"></script>
+    <script defer="defer">
+      window.onload = function() {
+        var stage = new Kinetic.Stage({
+          container: 'container',
+          width: 578,
+          height: 200
+        });
+        var layer = new Kinetic.Layer();
+
+        /*
+         * leave center point positioned
+         * at the default which is the top left
+         * corner of the rectangle
+         */
+ 
+        /*
+         * move center point outside of the rectangle
+         * with offset
+         */
+        var redRect = new Kinetic.Circle({
+          x: 400,
+          y: 75,
+          radius:10,
+          stroke: 'black',
+          strokeWidth: 1,
+          offset: [0, 50]
+        });
+
+        layer.add(redRect);
+        stage.add(layer);
+
+        // one revolution per 4 seconds
+        var angularSpeed = Math.PI / 10;
+        var anim = new Kinetic.Animation(function(frame) {
+          var angleDiff = frame.timeDiff * angularSpeed / 1000;
+          redRect.rotate(angleDiff);
+        }, layer);
+
+        anim.start();
+      };
+    </script>
+    </div>
+  
+  </div>
+  
+  <!-- Main Content Section -->
+  
+  
+  
+  
+  
+  
+  <!-- Footer -->
+  
+ <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          
+        </div>
+        <div class="small-10 columns">
+          <ul class="inline-list left">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="*">Network</a></li>
+            <li><a href="*">Seminars</a></li>
+            <li><a href="*">Profile</a></li>
+            <li><a href="*">Organizations</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+  </footer>
+
+
+  <script>
+  document.write('<script src=js/vendor/' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+</html>
