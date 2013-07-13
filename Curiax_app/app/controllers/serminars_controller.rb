@@ -1,0 +1,2 @@
+class SerminarsController < ApplicationController
+end
